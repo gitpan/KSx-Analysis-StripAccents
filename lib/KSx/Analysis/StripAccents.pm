@@ -4,7 +4,7 @@ use warnings;
 package KSx::Analysis::StripAccents;
 use base qw( KinoSearch::Analysis::Analyzer );
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Encode qw 'encode decode';
 use Text::Unaccent 'unac_string_utf16';
@@ -37,6 +37,10 @@ __END__
 
 KSx::Analysis::StripAccents - Remove accents and fold to lowercase
 
+=head1 VERSION
+
+0.02 (beta)
+
 =head1 SYNOPSIS
 
     my $stripper = KSx::Analysis::StripAccents->new;
@@ -63,7 +67,7 @@ the CPAN:
 
 L<Text::Unaccent>
 
-L<KinoSearch>
+L<KinoSearch> 0.2 or later
 
 =head1 AUTHOR & COPYRIGHT
 

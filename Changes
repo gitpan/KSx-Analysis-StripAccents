@@ -1,7 +1,8 @@
 Revision history for KSx::Analysis::StripAccents
 
-Er well, although this file is called 'Changes,' there haven't actually
-*been* any changes yet.
+0.02    9 February, 2008
+        Forgot to declare the dependency on KinoSearch version 0.2.
+        Now it’s in there.
 
-0.01    7 February, 2008
+0.01    8 February, 2008
         First release
