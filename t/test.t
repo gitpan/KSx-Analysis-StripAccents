@@ -39,8 +39,7 @@ sub test_analyzer {
     @got = $analyzer->analyze_raw($source);
     Test::More::is_deeply( \@got, $expected, "analyze_raw: $message" );
 
-    $batch = $analyzer->analyze_field(
-        KinoSearch::Doc->new( fields => { content => $source } ), 'content' );
+    $batch = $analyzer->analyze_field( { content => $source }, 'content' );
     @got = ();
     while ( my $token = $batch->next ) {
         push @got, $token->get_text;

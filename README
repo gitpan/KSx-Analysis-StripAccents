@@ -1,8 +1,11 @@
-KSx::Analysis::StripAccents, version 0.01 (beta)
+KSx::Analysis::StripAccents, version 0.03 (beta)
 
 This module provides a drop-in replacement for 
 KinoSearch::Analysis::LCNormalizer. In addition to folding text to
 lowercase, it strips accents (if you haven’t already guessed).
+
+This is identical to version 0.01 except for the Makefile.PL
+and tests.
 
 
 INSTALLATION

@@ -4,7 +4,7 @@ use warnings;
 package KSx::Analysis::StripAccents;
 use base qw( KinoSearch::Analysis::Analyzer );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use Encode qw 'encode decode';
 use Text::Unaccent 'unac_string_utf16';
@@ -39,7 +39,7 @@ KSx::Analysis::StripAccents - Remove accents and fold to lowercase
 
 =head1 VERSION
 
-0.02 (beta)
+0.03 (beta)
 
 =head1 SYNOPSIS
 
