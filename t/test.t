@@ -12,8 +12,8 @@ use_ok 'KSx::Analysis::StripAccents';
 my $stripper = KSx::Analysis::StripAccents->new;
 
 test_analyzer(
-    $stripper,      "căPîTāl ofḞḕnsE",
-    ['capital offense'], 'lc plain text'
+    $stripper,      "căPîTāl ofḞḕnsE | Σὺ ἔσωσας",
+    ['capital offense | συ εσωσασ'], 'lc plain text'
 );
 
 # Verify an Analyzer's analyze_batch, analyze_field, analyze_text, and analyze_raw methods.

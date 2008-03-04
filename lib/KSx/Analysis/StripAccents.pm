@@ -4,7 +4,7 @@ use warnings;
 package KSx::Analysis::StripAccents;
 use base qw( KinoSearch::Analysis::Analyzer );
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Encode qw 'encode decode';
 use Text::Unaccent 'unac_string_utf16';
@@ -21,8 +21,11 @@ sub analyze_batch {
         # since it doesn’t support Perl’s Unicode strings. (And it’ll con-
         # vert it to UTF-16 behind the scenes anyway, if I don’t.)
         $token->set_text(
-            lc decode 'utf-16be', unac_string_utf16
+            lc uc decode 'utf-16be', unac_string_utf16
                 encode 'UTF-16BE', $token->get_text );
+        # We have an ‘lc uc’ there, since some letters won’t be normalised
+        # properly without it; e.g., ‘Σσς’ should be normalised to three
+        # instances of the same character (‘σσσ’ as opposed to ‘σσς’).
     }
 
     $batch->reset;
@@ -39,7 +42,7 @@ KSx::Analysis::StripAccents - Remove accents and fold to lowercase
 
 =head1 VERSION
 
-0.03 (beta)
+0.04 (beta)
 
 =head1 SYNOPSIS
 
