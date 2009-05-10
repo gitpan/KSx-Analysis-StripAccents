@@ -1,5 +1,9 @@
 Revision history for KSx::Analysis::StripAccents
 
+0.05    10 May, 2009
+        Modified to work with the latest devel  revision  (4551)  of
+        KinoSearch  (while still maintaining backward compatibility)
+
 0.04    4 March, 2008
         Letters that have more than one lowercase form, but one capi-
         tal form (such as sigma), are now normalised properly.

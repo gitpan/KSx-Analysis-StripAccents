@@ -1,17 +1,14 @@
-KSx::Analysis::StripAccents, version 0.04 (beta)
+KSx::Analysis::StripAccents, version 0.05 (beta)
 
 This module provides a drop-in replacement for 
 KinoSearch::Analysis::LCNormalizer. In addition to folding text to
 lowercase, it strips accents (if you haven’t already guessed).
 
-This is identical to version 0.01 except for the Makefile.PL
-and tests.
-
 
 CHANGES IN THIS RELEASE
 
-Letters that have more than one lowercase form, but one capital form
-(such as sigma), are now normalised properly.
+Modified to work with the latest devel revision (4551) of KinoSearch
+(while still maintaining backward compatibility)
 
 
 INSTALLATION

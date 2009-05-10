@@ -4,12 +4,10 @@ use warnings;
 package KSx::Analysis::StripAccents;
 use base qw( KinoSearch::Analysis::Analyzer );
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use Encode qw 'encode decode';
 use Text::Unaccent 'unac_string_utf16';
-
-use KinoSearch::Analysis::TokenBatch;
 
 sub analyze_batch {
     my ( $self, $batch ) = @_;
@@ -32,6 +30,8 @@ sub analyze_batch {
     return $batch;
 }
 
+*transform = *analyze_batch;
+
 1;
 
 __END__
@@ -42,20 +42,21 @@ KSx::Analysis::StripAccents - Remove accents and fold to lowercase
 
 =head1 VERSION
 
-0.04 (beta)
+0.05 (beta)
 
 =head1 SYNOPSIS
 
     my $stripper = KSx::Analysis::StripAccents->new;
 
     my $polyanalyzer = KinoSearch::Analysis::PolyAnalyzer->new(
-        analyzers => [ $stripper, $tokenizer, $stemmer ],
+        analyzers => [ $tokenizer, $stripper, $stemmer ],
     );
 
 =head1 DESCRIPTION
 
 This analyser strips accents from its input, removes accents, and converts
-it to lowercase.
+it to lowercase. It may end up changing the length of a token, so make sure
+that this analyser is not used before a tokenizer.
 
 =head1 CONSTRUCTOR
 
@@ -85,6 +86,9 @@ L<KinoSearch::Analysis::Analyzer> (the base class)
 
 L<KinoSearch::Analysis::LCNormalizer> (which this module was based on, and
 is intended as a drop-in replacement for)
+
+L<KinoSearch::Analysis::CaseFolder> (what LCNormalizer has been renamed in
+the dev branch of KinoSearch)
 
 L<KinoSearch>
 
